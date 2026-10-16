@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InspectIQ | Steel Defect Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">Inspect<span>IQ</span></a>
+        <div id="system-status">Connecting to model...</div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">AI-POWERED QUALITY INSPECTION</p>
+            <h1>See defects before they become <span>problems.</span></h1>
+            <p>Analyze steel surfaces using your trained ResNet18 model.</p>
+        </section>
+
+        <section class="workspace">
+            <div class="panel">
+                <h2>01. Upload an image</h2>
+
+                <input type="file" id="image-input"
+                       accept="image/jpeg,image/png,image/webp" hidden>
+
+                <div id="drop-zone" class="drop-zone" role="button" tabindex="0">
+                    <div id="upload-placeholder">
+                        <div class="upload-icon">↑</div>
+                        <h3>Select a steel surface image</h3>
+                        <p>Click here or drag and drop</p>
+                        <small>JPG, PNG or WebP · Maximum 10 MB</small>
+                    </div>
+                    <img id="image-preview" class="preview hidden"
+                         alt="Selected steel surface">
+                </div>
+
+                <button id="analyze-btn" class="primary-btn" disabled>
+                    Analyze surface →
+                </button>
+                <p id="message" role="status">Choose an image to begin.</p>
+            </div>
+
+            <div class="panel">
+                <h2>02. Inspection results</h2>
+
+                <div id="empty-state" class="empty-state">
+                    <div class="upload-icon">⌕</div>
+                    <h3>Awaiting analysis</h3>
+                    <p>Your model's predictions will appear here.</p>
+                </div>
+
+                <div id="results" class="hidden">
+                    <p class="eyebrow">PREDICTED DEFECT</p>
+                    <h2 id="predicted-class">—</h2>
+
+                    <div class="confidence-row">
+                        <span>Model confidence</span>
+                        <strong id="confidence">—</strong>
+                    </div>
+
+                    <div class="meter">
+                        <div id="confidence-bar" class="meter-fill"></div>
+                    </div>
+
+                    <h3>Class probabilities</h3>
+                    <div id="predictions-list"></div>
+
+                    <button id="download-btn" class="secondary-btn">
+                        Export results (JSON)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>INSPECTIQ · INDUSTRIAL VISION</span>
+            <span>Powered by PyTorch and ResNet18</span>
+        </footer>
+    </main>
+</body>
+</html>

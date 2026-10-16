@@ -1,0 +1,12 @@
+Pillow
+numpy
+pandas
+matplotlib
+scikit-learn
+torch
+torchvision
+streamlit
+plotly
+fastapi
+uvicorn
+python-multipart

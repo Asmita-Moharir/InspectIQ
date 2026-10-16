@@ -1,0 +1,34 @@
+
+# Python environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Raw dataset - do not upload
+data/raw/
+data/processed/
+
+# Generated outputs
+outputs/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+
+# Trained model checkpoint
+models/*.pth
